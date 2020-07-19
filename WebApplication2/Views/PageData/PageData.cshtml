@@ -1,0 +1,48 @@
+﻿@using WebApplication2.Models;
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@using (Html.BeginForm("Save", "PageData"))
+{
+<button>Submit</button>
+    @Html.Label("Enter the page number:  ");
+
+    @Html.TextBox("txtPage")}
+
+</br>
+</br>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Year</th>
+            <th>Color</th>
+            <th>pantone_value</th>
+            <th>Group</th>
+
+        </tr>
+        @foreach (PageData dt in (PageData[])ViewBag.data)
+        {
+
+            <tr>
+                <td>@dt.id</td>
+                <td>@dt.name</td>
+                <td>@dt.year</td>
+                <td>@dt.color</td>
+                <td>
+                    @dt.pantone_value
+                </td>
+                <td>@dt.group</td>
+
+            </tr>
+
+        }
+
+    </thead>
+    <tbody></tbody>
+</table>
